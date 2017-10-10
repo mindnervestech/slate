@@ -1,15 +1,12 @@
 ---
-title: API Reference
+title: Contextgrid API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+  - :http
 
-toc_footers:
+<!-- toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a> -->
 
 includes:
   - errors
@@ -19,221 +16,404 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Contextgrid API! You can use our API to access Contextgrid API endpoints, which can get information on  beacons in our database.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+We have language bindings in http. You can view code examples in the dark area to the right.
 
 # Authentication
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
 
 ```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
+# With http, you can just pass the correct header with each request
+http://"api_endpoint_here"
+  -H "X-AUTH-TOKEN: yourAuthToken"
 ```
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
 
-```javascript
-const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
-```
 
-> Make sure to replace `meowmeowmeow` with your API key.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+> Make sure to replace `yourAuthToken` with your Auth Token key.
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Contextgrid uses Token keys to allow access to the API. 
 
-`Authorization: meowmeowmeow`
+Contextgrid expects for the Token key to be included in all API requests to the server in a header that looks like the following:
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+`X-AUTH-TOKEN: eyJhbGciOiJIUzUxMiJ9.eyJwZXJtaXNzaW9ucyI6IltdIiwic3ViamVjdCI6ImFua2l0QGdtYWlsLmNvbWNvbXBhbnlPd25lciIsInJvbGVzIjoiW2NvbXBhbnlPd25lcl0ifQ.qWorUEDE5_ZWdBuded-U_OOhNWeymspy6xJ2ogXfM3GW6d9rW2_8J992y5fN71Rj17JgkmFe-PbwdgDqOL95CA`
 
-# Kittens
 
-## Get All Kittens
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
+
+# Beacons
+
+## Get All Places
+
+
 
 ```python
-import kittn
+GET  https://app.contextgrid.com/api/place/beacons?longitude=-74.0441844&latitude=40.7139937&apiKey=yourAppApiKey
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+Headers
+X-AUTH-TOKEN: xAuthToken
+
+Response
+{
+    "status": "200",
+    "data": [
+        {
+            "placeName": "Surf City",
+            "latitude": "40.7117978",
+            "longitude": "-74.0432427",
+            "beaconCount": 1,
+            "placeId": "69fb9f18-6c79-49c4-b980-1c65bcb66ff2",
+            "companyName": "Gmail",
+            "address": "building no. 1, 1 Marin Blvd, Jersey City, New Jersey, USA, Post Code:07302"
+        },
+        {
+            "placeName": "Marin Dry Cleaners",
+            "latitude": "40.7149132",
+            "longitude": "-74.043346",
+            "beaconCount": 1,
+            "placeId": "747b6f14-f1fe-496c-a25e-56b518de6b94",
+            "companyName": "Gmail",
+            "address": "201 Marin Blvd, Jersey City, New Jersey, USA, Post Code:07302"
+        },
+        {
+            "placeName": "Airport 18 park",
+            "latitude": "40.7139937",
+            "longitude": "-74.0441844",
+            "beaconCount": 4,
+            "placeId": "6de3ef9f-9baf-490c-a7ce-8360a1aee65d",
+            "companyName": "Gmail",
+            "address": "building no. 18, 18 Park Ave, Apt 316, Jersey City, New Jersey, United States, Post Code:07302"
+        }
+    ]
+}
 ```
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
+This endpoint retrieves all places from given location.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://app.contextgrid.com/api/place/beacons`
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+Parameter |  Description
+--------- |  -----------
+longitude |  longitude of location where you want search places.
+latitude |  latitude of location where you want search places.
+apiKey |  apiKey of your app.
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Remember — your apiKey of your app should be valid
 </aside>
 
-## Get a Specific Kitten
+## Get beacons by place
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
 
 ```python
-import kittn
+GET https://app.contextgrid.com/api/beacons/byPlace/6de3ef9f-9baf-490c-a7ce-8360a1aee65d/yourAppApiKey
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+Headers
+X-AUTH-TOKEN: xAuthToken
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
+Response
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+    "status": "200",
+    "data": [
+        {
+            "id": "128b7bdc-03e6-42de-bc24-da4222644610",
+            "beaconType": "iBeacon",
+            "uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+            "major": 53001,
+            "minor": 51064,
+            "microLoaction": "Security Room",
+            "placeName": "Airport 18 park",
+            "companyName": "Gmail",
+            "latitude": "40.713884",
+            "longitude": "-74.045034"
+        }
+    ]
 }
 ```
 
-This endpoint retrieves a specific kitten.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+
+
+
+This endpoint retrieves beacons belonging to place.
+
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://app.contextgrid.com/api/beacons/byPlace/<PlaceId>/<AppApiKey>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+PlaceId | place id of given place
+AppApiKey |  apiKey of your app.
 
-## Delete a Specific Kitten
 
-```ruby
-require 'kittn'
+## Get beacons by place (extended)
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
+
 
 ```python
-import kittn
+GET https://app.contextgrid.com/api/allBeacons/byPlace/6de3ef9f-9baf-490c-a7ce-8360a1aee65d/yourAppApiKey
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+Headers
+X-AUTH-TOKEN: xAuthToken
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
+Response
 {
-  "id": 2,
-  "deleted" : ":("
+    "status": "200",
+    "data": [
+        {
+            "id": "128b7bdc-03e6-42de-bc24-da4222644610",
+            "major": 53001,
+            "minor": 51064,
+            "beaconType": "iBeacon",
+            "uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+            "mataListName": "Room Actions",
+            "metalist": [
+                {
+                    "key": "Who is in",
+                    "value": "https://app.contextgrid.com/beacon/api/peopleCount/128b7bdc-03e6-42de-bc24-da4222644610/CE40B5BB4D793B18A9B87CCCFBF9F608"
+                }
+            ],
+            "microLocation": "Security Room",
+            "placeName": "Airport 18 park",
+            "companyName": "Gmail",
+            "cgId": "CG_BEC_0000050",
+            "imageUrl": "http://52.1.88.195:8089/user/comapny/profile/id/f406fdbe-9213-4ccf-8f60-682fc7a68bc3",
+            "notificationName": "Test",
+            "notificationUrl": "test",
+            "notificationFrequency": "Disabled",
+            "notificationMessage": "test"
+        }
+    ]
 }
 ```
 
-This endpoint retrieves a specific kitten.
+
+
+
+
+This endpoint retrieves beacons with action list value (metadata) belonging to given place.
+
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`GET https://app.contextgrid.com/api/allBeacons/byPlace/<PlaceId>/<AppApiKey>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+PlaceId | place id of given place
+AppApiKey |  apiKey of your app.
+
+## Get beacons by id
+
+
+
+```python
+GET https://app.contextgrid.com/api/beacon/byid/128b7bdc-03e6-42de-bc24-da4222644610/yourAppApiKey
+
+Headers
+X-AUTH-TOKEN: xAuthToken
+
+Response
+{
+    "status": "200",
+    "data": {
+        "id": "128b7bdc-03e6-42de-bc24-da4222644610",
+        "major": 53001,
+        "minor": 51064,
+        "beaconType": "iBeacon",
+        "uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+        "mataListName": "Room Actions",
+        "metalist": [
+            {
+                "key": "Who is in",
+                "value": "https://app.contextgrid.com/beacon/api/peopleCount/128b7bdc-03e6-42de-bc24-da4222644610/CE40B5BB4D793B18A9B87CCCFBF9F608"
+            }
+        ],
+        "microLocation": "Security Room",
+        "placeName": "Airport 18 park",
+        "companyName": "Gmail",
+        "cgId": "CG_BEC_0000050",
+        "imageUrl": "http://52.1.88.195:8089/user/comapny/profile/id/f406fdbe-9213-4ccf-8f60-682fc7a68bc3",
+        "notificationName": "Test",
+        "notificationUrl": "test",
+        "notificationFrequency": "Disabled",
+        "notificationMessage": "test"
+    }
+}
+```
+
+
+
+
+
+This endpoint retrieves beacon information of given id.
+
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
+
+### HTTP Request
+
+`GET https://app.contextgrid.com/api/beacon/byid/<BeaconId>/<AppApiKey>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+BeaconId | id of beacon
+AppApiKey |  apiKey of your app.
+
+## Get beacons by major,minor,uuid
+
+
+
+```python
+GET https://app.contextgrid.com/api/beacon/getBy/B9407F30-F5F8-466E-AFF9-25556B57FE6D/53001/51064/gmail/yourAppApiKey
+
+
+Headers
+X-AUTH-TOKEN: xAuthToken
+
+Response
+{
+    "status": "200",
+    "data": {
+        "id": "128b7bdc-03e6-42de-bc24-da4222644610",
+        "major": 53001,
+        "minor": 51064,
+        "beaconType": "iBeacon",
+        "uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+        "mataListName": "Room Actions",
+        "metalist": [
+            {
+                "key": "Who is in",
+                "value": "https://app.contextgrid.com/beacon/api/peopleCount/128b7bdc-03e6-42de-bc24-da4222644610/CE40B5BB4D793B18A9B87CCCFBF9F608"
+            }
+        ],
+        "microLocation": "Security Room",
+        "placeName": "Airport 18 park",
+        "companyName": "Gmail",
+        "cgId": "CG_BEC_0000050",
+        "imageUrl": "http://52.1.88.195:8089/user/comapny/profile/id/f406fdbe-9213-4ccf-8f60-682fc7a68bc3",
+        "notificationName": "Test",
+        "notificationUrl": "test",
+        "notificationFrequency": "Disabled",
+        "notificationMessage": "test"
+    }
+}
+```
+
+
+
+
+
+This endpoint retrieves beacon information of given major,minor,uuid.
+
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
+
+### HTTP Request
+
+GET https://app.contextgrid.com/api/beacon/getBy/<UUID>/<Major>/<Minor>/<DomainName>/<AppApiKey>
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+UUID | uuid (Proximity_UUID) of beacon
+Major | major of beacon
+Minor | minor of beacon
+DomainName | domain name of your company
+AppApiKey |  apiKey of your app.
+
+## Get all beacons by domain name
+
+
+
+```python
+GET https://app.contextgrid.com/api/beacons/all/gmail/yourCompanyApiKey
+
+
+
+Headers
+X-AUTH-TOKEN: xAuthToken
+
+Response
+{
+    "status": "200",
+    "data": [
+        {
+            "id": "8e0dd0fe-5957-488b-9506-17758bbcccc9",
+            "cgId": "CG_BEC_0000074",
+            "proxiUid": "uuid4011",
+            "major": 45,
+            "minor": 4,
+            "orgName": "f406fdbe-9213-4ccf-8f60-682fc7a68bc3",
+            "actionUrl": null,
+            "beaconType": 1,
+            "uidFrame": null,
+            "broadcast": null,
+            "namespaceId": null,
+            "instanceId": null,
+            "broadcastUrl": null,
+            "userId": 1,
+            "placeId": "69fb9f18-6c79-49c4-b980-1c65bcb66ff2",
+            "latitude": "15.497242",
+            "longitude": "73.825135",
+            "actionList": [
+                {
+                    "key": "Spa Mother's Day",
+                    "value": "https://www.spa810.com/weehawken/membership/"
+                }
+            ],
+            "actionListId": null,
+            "accessLevel": "public",
+            "microLocation": "Bar Entrance",
+            "notificationName": "1f07f2a7-d4c0-4d7b-8fd2-b086fd57be79",
+            "notificationUrl": null,
+            "notificationFrequency": null,
+            "notificationMessage": null
+        }
+    ]
+}
+```
+
+
+
+
+
+This endpoint retrieves beacon information of given major,minor,uuid.
+
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
+
+### HTTP Request
+
+GET https://app.contextgrid.com/api/beacons/all/<DomainName>/<CompanyApiKey>
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+DomainName | domain name of your company
+CompanyApiKey |  companyApiKey of your app.
+
+
 

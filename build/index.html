@@ -1,0 +1,679 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Contextgrid API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;http&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="http">http</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#beacons" class="toc-h1 toc-link" data-title="Beacons">Beacons</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-places" class="toc-h2 toc-link" data-title="Beacons">Get All Places</a>
+                  </li>
+                  <li>
+                    <a href="#get-beacons-by-place" class="toc-h2 toc-link" data-title="Beacons">Get beacons by place</a>
+                  </li>
+                  <li>
+                    <a href="#get-beacons-by-place-extended" class="toc-h2 toc-link" data-title="Beacons">Get beacons by place (extended)</a>
+                  </li>
+                  <li>
+                    <a href="#get-beacons-by-id" class="toc-h2 toc-link" data-title="Beacons">Get beacons by id</a>
+                  </li>
+                  <li>
+                    <a href="#get-beacons-by-major-minor-uuid" class="toc-h2 toc-link" data-title="Beacons">Get beacons by major,minor,uuid</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-beacons-by-domain-name" class="toc-h2 toc-link" data-title="Beacons">Get all beacons by domain name</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the Contextgrid API! You can use our API to access Contextgrid API endpoints, which can get information on  beacons in our database.</p>
+
+<p>We have language bindings in http. You can view code examples in the dark area to the right.</p>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="c"># With http, you can just pass the correct header with each request</span>
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="s">"api_endpoint_here"</span>
+  <span class="o">-</span><span class="n">H</span> <span class="s">"X-AUTH-TOKEN: yourAuthToken"</span>
+</code></pre>
+<blockquote>
+<p>Make sure to replace <code>yourAuthToken</code> with your Auth Token key.</p>
+</blockquote>
+
+<p>Contextgrid uses Token keys to allow access to the API. </p>
+
+<p>Contextgrid expects for the Token key to be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code>X-AUTH-TOKEN: eyJhbGciOiJIUzUxMiJ9.eyJwZXJtaXNzaW9ucyI6IltdIiwic3ViamVjdCI6ImFua2l0QGdtYWlsLmNvbWNvbXBhbnlPd25lciIsInJvbGVzIjoiW2NvbXBhbnlPd25lcl0ifQ.qWorUEDE5_ZWdBuded-U_OOhNWeymspy6xJ2ogXfM3GW6d9rW2_8J992y5fN71Rj17JgkmFe-PbwdgDqOL95CA</code></p>
+<h1 id='beacons'>Beacons</h1><h2 id='get-all-places'>Get All Places</h2><pre class="highlight python tab-python"><code><span class="n">GET</span>  <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">place</span><span class="o">/</span><span class="n">beacons</span><span class="err">?</span><span class="n">longitude</span><span class="o">=-</span><span class="mf">74.0441844</span><span class="o">&amp;</span><span class="n">latitude</span><span class="o">=</span><span class="mf">40.7139937</span><span class="o">&amp;</span><span class="n">apiKey</span><span class="o">=</span><span class="n">yourAppApiKey</span>
+
+<span class="n">Headers</span>
+<span class="n">X</span><span class="o">-</span><span class="n">AUTH</span><span class="o">-</span><span class="n">TOKEN</span><span class="p">:</span> <span class="n">xAuthToken</span>
+
+<span class="n">Response</span>
+<span class="p">{</span>
+    <span class="s">"status"</span><span class="p">:</span> <span class="s">"200"</span><span class="p">,</span>
+    <span class="s">"data"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">"placeName"</span><span class="p">:</span> <span class="s">"Surf City"</span><span class="p">,</span>
+            <span class="s">"latitude"</span><span class="p">:</span> <span class="s">"40.7117978"</span><span class="p">,</span>
+            <span class="s">"longitude"</span><span class="p">:</span> <span class="s">"-74.0432427"</span><span class="p">,</span>
+            <span class="s">"beaconCount"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s">"placeId"</span><span class="p">:</span> <span class="s">"69fb9f18-6c79-49c4-b980-1c65bcb66ff2"</span><span class="p">,</span>
+            <span class="s">"companyName"</span><span class="p">:</span> <span class="s">"Gmail"</span><span class="p">,</span>
+            <span class="s">"address"</span><span class="p">:</span> <span class="s">"building no. 1, 1 Marin Blvd, Jersey City, New Jersey, USA, Post Code:07302"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">"placeName"</span><span class="p">:</span> <span class="s">"Marin Dry Cleaners"</span><span class="p">,</span>
+            <span class="s">"latitude"</span><span class="p">:</span> <span class="s">"40.7149132"</span><span class="p">,</span>
+            <span class="s">"longitude"</span><span class="p">:</span> <span class="s">"-74.043346"</span><span class="p">,</span>
+            <span class="s">"beaconCount"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s">"placeId"</span><span class="p">:</span> <span class="s">"747b6f14-f1fe-496c-a25e-56b518de6b94"</span><span class="p">,</span>
+            <span class="s">"companyName"</span><span class="p">:</span> <span class="s">"Gmail"</span><span class="p">,</span>
+            <span class="s">"address"</span><span class="p">:</span> <span class="s">"201 Marin Blvd, Jersey City, New Jersey, USA, Post Code:07302"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">"placeName"</span><span class="p">:</span> <span class="s">"Airport 18 park"</span><span class="p">,</span>
+            <span class="s">"latitude"</span><span class="p">:</span> <span class="s">"40.7139937"</span><span class="p">,</span>
+            <span class="s">"longitude"</span><span class="p">:</span> <span class="s">"-74.0441844"</span><span class="p">,</span>
+            <span class="s">"beaconCount"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+            <span class="s">"placeId"</span><span class="p">:</span> <span class="s">"6de3ef9f-9baf-490c-a7ce-8360a1aee65d"</span><span class="p">,</span>
+            <span class="s">"companyName"</span><span class="p">:</span> <span class="s">"Gmail"</span><span class="p">,</span>
+            <span class="s">"address"</span><span class="p">:</span> <span class="s">"building no. 18, 18 Park Ave, Apt 316, Jersey City, New Jersey, United States, Post Code:07302"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+<p>This endpoint retrieves all places from given location.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://app.contextgrid.com/api/place/beacons</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>longitude</td>
+<td>longitude of location where you want search places.</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>latitude of location where you want search places.</td>
+</tr>
+<tr>
+<td>apiKey</td>
+<td>apiKey of your app.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Remember — your apiKey of your app should be valid
+</aside>
+<h2 id='get-beacons-by-place'>Get beacons by place</h2><pre class="highlight python tab-python"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">beacons</span><span class="o">/</span><span class="n">byPlace</span><span class="o">/</span><span class="mi">6</span><span class="n">de3ef9f</span><span class="o">-</span><span class="mi">9</span><span class="n">baf</span><span class="o">-</span><span class="mi">490</span><span class="n">c</span><span class="o">-</span><span class="n">a7ce</span><span class="o">-</span><span class="mi">8360</span><span class="n">a1aee65d</span><span class="o">/</span><span class="n">yourAppApiKey</span>
+
+<span class="n">Headers</span>
+<span class="n">X</span><span class="o">-</span><span class="n">AUTH</span><span class="o">-</span><span class="n">TOKEN</span><span class="p">:</span> <span class="n">xAuthToken</span>
+
+<span class="n">Response</span>
+<span class="p">{</span>
+    <span class="s">"status"</span><span class="p">:</span> <span class="s">"200"</span><span class="p">,</span>
+    <span class="s">"data"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">"id"</span><span class="p">:</span> <span class="s">"128b7bdc-03e6-42de-bc24-da4222644610"</span><span class="p">,</span>
+            <span class="s">"beaconType"</span><span class="p">:</span> <span class="s">"iBeacon"</span><span class="p">,</span>
+            <span class="s">"uuid"</span><span class="p">:</span> <span class="s">"B9407F30-F5F8-466E-AFF9-25556B57FE6D"</span><span class="p">,</span>
+            <span class="s">"major"</span><span class="p">:</span> <span class="mi">53001</span><span class="p">,</span>
+            <span class="s">"minor"</span><span class="p">:</span> <span class="mi">51064</span><span class="p">,</span>
+            <span class="s">"microLoaction"</span><span class="p">:</span> <span class="s">"Security Room"</span><span class="p">,</span>
+            <span class="s">"placeName"</span><span class="p">:</span> <span class="s">"Airport 18 park"</span><span class="p">,</span>
+            <span class="s">"companyName"</span><span class="p">:</span> <span class="s">"Gmail"</span><span class="p">,</span>
+            <span class="s">"latitude"</span><span class="p">:</span> <span class="s">"40.713884"</span><span class="p">,</span>
+            <span class="s">"longitude"</span><span class="p">:</span> <span class="s">"-74.045034"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+<p>This endpoint retrieves beacons belonging to place.</p>
+
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://app.contextgrid.com/api/beacons/byPlace/&lt;PlaceId&gt;/&lt;AppApiKey&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>PlaceId</td>
+<td>place id of given place</td>
+</tr>
+<tr>
+<td>AppApiKey</td>
+<td>apiKey of your app.</td>
+</tr>
+</tbody></table>
+<h2 id='get-beacons-by-place-extended'>Get beacons by place (extended)</h2><pre class="highlight python tab-python"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">allBeacons</span><span class="o">/</span><span class="n">byPlace</span><span class="o">/</span><span class="mi">6</span><span class="n">de3ef9f</span><span class="o">-</span><span class="mi">9</span><span class="n">baf</span><span class="o">-</span><span class="mi">490</span><span class="n">c</span><span class="o">-</span><span class="n">a7ce</span><span class="o">-</span><span class="mi">8360</span><span class="n">a1aee65d</span><span class="o">/</span><span class="n">yourAppApiKey</span>
+
+<span class="n">Headers</span>
+<span class="n">X</span><span class="o">-</span><span class="n">AUTH</span><span class="o">-</span><span class="n">TOKEN</span><span class="p">:</span> <span class="n">xAuthToken</span>
+
+<span class="n">Response</span>
+<span class="p">{</span>
+    <span class="s">"status"</span><span class="p">:</span> <span class="s">"200"</span><span class="p">,</span>
+    <span class="s">"data"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">"id"</span><span class="p">:</span> <span class="s">"128b7bdc-03e6-42de-bc24-da4222644610"</span><span class="p">,</span>
+            <span class="s">"major"</span><span class="p">:</span> <span class="mi">53001</span><span class="p">,</span>
+            <span class="s">"minor"</span><span class="p">:</span> <span class="mi">51064</span><span class="p">,</span>
+            <span class="s">"beaconType"</span><span class="p">:</span> <span class="s">"iBeacon"</span><span class="p">,</span>
+            <span class="s">"uuid"</span><span class="p">:</span> <span class="s">"B9407F30-F5F8-466E-AFF9-25556B57FE6D"</span><span class="p">,</span>
+            <span class="s">"mataListName"</span><span class="p">:</span> <span class="s">"Room Actions"</span><span class="p">,</span>
+            <span class="s">"metalist"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s">"key"</span><span class="p">:</span> <span class="s">"Who is in"</span><span class="p">,</span>
+                    <span class="s">"value"</span><span class="p">:</span> <span class="s">"https://app.contextgrid.com/beacon/api/peopleCount/128b7bdc-03e6-42de-bc24-da4222644610/CE40B5BB4D793B18A9B87CCCFBF9F608"</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s">"microLocation"</span><span class="p">:</span> <span class="s">"Security Room"</span><span class="p">,</span>
+            <span class="s">"placeName"</span><span class="p">:</span> <span class="s">"Airport 18 park"</span><span class="p">,</span>
+            <span class="s">"companyName"</span><span class="p">:</span> <span class="s">"Gmail"</span><span class="p">,</span>
+            <span class="s">"cgId"</span><span class="p">:</span> <span class="s">"CG_BEC_0000050"</span><span class="p">,</span>
+            <span class="s">"imageUrl"</span><span class="p">:</span> <span class="s">"http://52.1.88.195:8089/user/comapny/profile/id/f406fdbe-9213-4ccf-8f60-682fc7a68bc3"</span><span class="p">,</span>
+            <span class="s">"notificationName"</span><span class="p">:</span> <span class="s">"Test"</span><span class="p">,</span>
+            <span class="s">"notificationUrl"</span><span class="p">:</span> <span class="s">"test"</span><span class="p">,</span>
+            <span class="s">"notificationFrequency"</span><span class="p">:</span> <span class="s">"Disabled"</span><span class="p">,</span>
+            <span class="s">"notificationMessage"</span><span class="p">:</span> <span class="s">"test"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+<p>This endpoint retrieves beacons with action list value (metadata) belonging to given place.</p>
+
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://app.contextgrid.com/api/allBeacons/byPlace/&lt;PlaceId&gt;/&lt;AppApiKey&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>PlaceId</td>
+<td>place id of given place</td>
+</tr>
+<tr>
+<td>AppApiKey</td>
+<td>apiKey of your app.</td>
+</tr>
+</tbody></table>
+<h2 id='get-beacons-by-id'>Get beacons by id</h2><pre class="highlight python tab-python"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">beacon</span><span class="o">/</span><span class="n">byid</span><span class="o">/</span><span class="mi">128</span><span class="n">b7bdc</span><span class="o">-</span><span class="mf">03e6</span><span class="o">-</span><span class="mi">42</span><span class="n">de</span><span class="o">-</span><span class="n">bc24</span><span class="o">-</span><span class="n">da4222644610</span><span class="o">/</span><span class="n">yourAppApiKey</span>
+
+<span class="n">Headers</span>
+<span class="n">X</span><span class="o">-</span><span class="n">AUTH</span><span class="o">-</span><span class="n">TOKEN</span><span class="p">:</span> <span class="n">xAuthToken</span>
+
+<span class="n">Response</span>
+<span class="p">{</span>
+    <span class="s">"status"</span><span class="p">:</span> <span class="s">"200"</span><span class="p">,</span>
+    <span class="s">"data"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">"id"</span><span class="p">:</span> <span class="s">"128b7bdc-03e6-42de-bc24-da4222644610"</span><span class="p">,</span>
+        <span class="s">"major"</span><span class="p">:</span> <span class="mi">53001</span><span class="p">,</span>
+        <span class="s">"minor"</span><span class="p">:</span> <span class="mi">51064</span><span class="p">,</span>
+        <span class="s">"beaconType"</span><span class="p">:</span> <span class="s">"iBeacon"</span><span class="p">,</span>
+        <span class="s">"uuid"</span><span class="p">:</span> <span class="s">"B9407F30-F5F8-466E-AFF9-25556B57FE6D"</span><span class="p">,</span>
+        <span class="s">"mataListName"</span><span class="p">:</span> <span class="s">"Room Actions"</span><span class="p">,</span>
+        <span class="s">"metalist"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s">"key"</span><span class="p">:</span> <span class="s">"Who is in"</span><span class="p">,</span>
+                <span class="s">"value"</span><span class="p">:</span> <span class="s">"https://app.contextgrid.com/beacon/api/peopleCount/128b7bdc-03e6-42de-bc24-da4222644610/CE40B5BB4D793B18A9B87CCCFBF9F608"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s">"microLocation"</span><span class="p">:</span> <span class="s">"Security Room"</span><span class="p">,</span>
+        <span class="s">"placeName"</span><span class="p">:</span> <span class="s">"Airport 18 park"</span><span class="p">,</span>
+        <span class="s">"companyName"</span><span class="p">:</span> <span class="s">"Gmail"</span><span class="p">,</span>
+        <span class="s">"cgId"</span><span class="p">:</span> <span class="s">"CG_BEC_0000050"</span><span class="p">,</span>
+        <span class="s">"imageUrl"</span><span class="p">:</span> <span class="s">"http://52.1.88.195:8089/user/comapny/profile/id/f406fdbe-9213-4ccf-8f60-682fc7a68bc3"</span><span class="p">,</span>
+        <span class="s">"notificationName"</span><span class="p">:</span> <span class="s">"Test"</span><span class="p">,</span>
+        <span class="s">"notificationUrl"</span><span class="p">:</span> <span class="s">"test"</span><span class="p">,</span>
+        <span class="s">"notificationFrequency"</span><span class="p">:</span> <span class="s">"Disabled"</span><span class="p">,</span>
+        <span class="s">"notificationMessage"</span><span class="p">:</span> <span class="s">"test"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>This endpoint retrieves beacon information of given id.</p>
+
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://app.contextgrid.com/api/beacon/byid/&lt;BeaconId&gt;/&lt;AppApiKey&gt;</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>BeaconId</td>
+<td>id of beacon</td>
+</tr>
+<tr>
+<td>AppApiKey</td>
+<td>apiKey of your app.</td>
+</tr>
+</tbody></table>
+<h2 id='get-beacons-by-major-minor-uuid'>Get beacons by major,minor,uuid</h2><pre class="highlight python tab-python"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">beacon</span><span class="o">/</span><span class="n">getBy</span><span class="o">/</span><span class="n">B9407F30</span><span class="o">-</span><span class="n">F5F8</span><span class="o">-</span><span class="mi">466</span><span class="n">E</span><span class="o">-</span><span class="n">AFF9</span><span class="o">-</span><span class="mi">25556</span><span class="n">B57FE6D</span><span class="o">/</span><span class="mi">53001</span><span class="o">/</span><span class="mi">51064</span><span class="o">/</span><span class="n">gmail</span><span class="o">/</span><span class="n">yourAppApiKey</span>
+
+
+<span class="n">Headers</span>
+<span class="n">X</span><span class="o">-</span><span class="n">AUTH</span><span class="o">-</span><span class="n">TOKEN</span><span class="p">:</span> <span class="n">xAuthToken</span>
+
+<span class="n">Response</span>
+<span class="p">{</span>
+    <span class="s">"status"</span><span class="p">:</span> <span class="s">"200"</span><span class="p">,</span>
+    <span class="s">"data"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">"id"</span><span class="p">:</span> <span class="s">"128b7bdc-03e6-42de-bc24-da4222644610"</span><span class="p">,</span>
+        <span class="s">"major"</span><span class="p">:</span> <span class="mi">53001</span><span class="p">,</span>
+        <span class="s">"minor"</span><span class="p">:</span> <span class="mi">51064</span><span class="p">,</span>
+        <span class="s">"beaconType"</span><span class="p">:</span> <span class="s">"iBeacon"</span><span class="p">,</span>
+        <span class="s">"uuid"</span><span class="p">:</span> <span class="s">"B9407F30-F5F8-466E-AFF9-25556B57FE6D"</span><span class="p">,</span>
+        <span class="s">"mataListName"</span><span class="p">:</span> <span class="s">"Room Actions"</span><span class="p">,</span>
+        <span class="s">"metalist"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s">"key"</span><span class="p">:</span> <span class="s">"Who is in"</span><span class="p">,</span>
+                <span class="s">"value"</span><span class="p">:</span> <span class="s">"https://app.contextgrid.com/beacon/api/peopleCount/128b7bdc-03e6-42de-bc24-da4222644610/CE40B5BB4D793B18A9B87CCCFBF9F608"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s">"microLocation"</span><span class="p">:</span> <span class="s">"Security Room"</span><span class="p">,</span>
+        <span class="s">"placeName"</span><span class="p">:</span> <span class="s">"Airport 18 park"</span><span class="p">,</span>
+        <span class="s">"companyName"</span><span class="p">:</span> <span class="s">"Gmail"</span><span class="p">,</span>
+        <span class="s">"cgId"</span><span class="p">:</span> <span class="s">"CG_BEC_0000050"</span><span class="p">,</span>
+        <span class="s">"imageUrl"</span><span class="p">:</span> <span class="s">"http://52.1.88.195:8089/user/comapny/profile/id/f406fdbe-9213-4ccf-8f60-682fc7a68bc3"</span><span class="p">,</span>
+        <span class="s">"notificationName"</span><span class="p">:</span> <span class="s">"Test"</span><span class="p">,</span>
+        <span class="s">"notificationUrl"</span><span class="p">:</span> <span class="s">"test"</span><span class="p">,</span>
+        <span class="s">"notificationFrequency"</span><span class="p">:</span> <span class="s">"Disabled"</span><span class="p">,</span>
+        <span class="s">"notificationMessage"</span><span class="p">:</span> <span class="s">"test"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>This endpoint retrieves beacon information of given major,minor,uuid.</p>
+
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
+<h3 id='http-request-5'>HTTP Request</h3>
+<p>GET https://app.contextgrid.com/api/beacon/getBy/<UUID>/<Major>/<Minor>/<DomainName>/<AppApiKey></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UUID</td>
+<td>uuid (Proximity_UUID) of beacon</td>
+</tr>
+<tr>
+<td>Major</td>
+<td>major of beacon</td>
+</tr>
+<tr>
+<td>Minor</td>
+<td>minor of beacon</td>
+</tr>
+<tr>
+<td>DomainName</td>
+<td>domain name of your company</td>
+</tr>
+<tr>
+<td>AppApiKey</td>
+<td>apiKey of your app.</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-beacons-by-domain-name'>Get all beacons by domain name</h2><pre class="highlight python tab-python"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">beacons</span><span class="o">/</span><span class="nb">all</span><span class="o">/</span><span class="n">gmail</span><span class="o">/</span><span class="n">yourCompanyApiKey</span>
+
+
+
+<span class="n">Headers</span>
+<span class="n">X</span><span class="o">-</span><span class="n">AUTH</span><span class="o">-</span><span class="n">TOKEN</span><span class="p">:</span> <span class="n">xAuthToken</span>
+
+<span class="n">Response</span>
+<span class="p">{</span>
+    <span class="s">"status"</span><span class="p">:</span> <span class="s">"200"</span><span class="p">,</span>
+    <span class="s">"data"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">"id"</span><span class="p">:</span> <span class="s">"8e0dd0fe-5957-488b-9506-17758bbcccc9"</span><span class="p">,</span>
+            <span class="s">"cgId"</span><span class="p">:</span> <span class="s">"CG_BEC_0000074"</span><span class="p">,</span>
+            <span class="s">"proxiUid"</span><span class="p">:</span> <span class="s">"uuid4011"</span><span class="p">,</span>
+            <span class="s">"major"</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+            <span class="s">"minor"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+            <span class="s">"orgName"</span><span class="p">:</span> <span class="s">"f406fdbe-9213-4ccf-8f60-682fc7a68bc3"</span><span class="p">,</span>
+            <span class="s">"actionUrl"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s">"beaconType"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s">"uidFrame"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s">"broadcast"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s">"namespaceId"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s">"instanceId"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s">"broadcastUrl"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s">"userId"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s">"placeId"</span><span class="p">:</span> <span class="s">"69fb9f18-6c79-49c4-b980-1c65bcb66ff2"</span><span class="p">,</span>
+            <span class="s">"latitude"</span><span class="p">:</span> <span class="s">"15.497242"</span><span class="p">,</span>
+            <span class="s">"longitude"</span><span class="p">:</span> <span class="s">"73.825135"</span><span class="p">,</span>
+            <span class="s">"actionList"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s">"key"</span><span class="p">:</span> <span class="s">"Spa Mother's Day"</span><span class="p">,</span>
+                    <span class="s">"value"</span><span class="p">:</span> <span class="s">"https://www.spa810.com/weehawken/membership/"</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s">"actionListId"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s">"accessLevel"</span><span class="p">:</span> <span class="s">"public"</span><span class="p">,</span>
+            <span class="s">"microLocation"</span><span class="p">:</span> <span class="s">"Bar Entrance"</span><span class="p">,</span>
+            <span class="s">"notificationName"</span><span class="p">:</span> <span class="s">"1f07f2a7-d4c0-4d7b-8fd2-b086fd57be79"</span><span class="p">,</span>
+            <span class="s">"notificationUrl"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s">"notificationFrequency"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s">"notificationMessage"</span><span class="p">:</span> <span class="n">null</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+<p>This endpoint retrieves beacon information of given major,minor,uuid.</p>
+
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
+<h3 id='http-request-6'>HTTP Request</h3>
+<p>GET https://app.contextgrid.com/api/beacons/all/<DomainName>/<CompanyApiKey></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DomainName</td>
+<td>domain name of your company</td>
+</tr>
+<tr>
+<td>CompanyApiKey</td>
+<td>companyApiKey of your app.</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
+<!-- <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside> -->
+
+<p>The Contextgrid API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request sucks.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The API requested is Unauthorized.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified API could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a beacon with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format not valid.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="http">http</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

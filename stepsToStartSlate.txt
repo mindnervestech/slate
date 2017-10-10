@@ -1,0 +1,3 @@
+bundle install                      ::: only for fist time
+bundle exec middleman server   
+bundle exec middleman build --clean   :::: it will make static pages in build directory
