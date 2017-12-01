@@ -225,25 +225,25 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
-            <a href="#micro-locations" class="toc-h1 toc-link" data-title="Micro Locations">Micro Locations</a>
+            <a href="#beacons" class="toc-h1 toc-link" data-title="Beacons">Beacons</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-places" class="toc-h2 toc-link" data-title="Micro Locations">Get All Places</a>
+                    <a href="#get-all-places" class="toc-h2 toc-link" data-title="Beacons">Get All Places</a>
                   </li>
                   <li>
-                    <a href="#get-micro-locations-by-place" class="toc-h2 toc-link" data-title="Micro Locations">Get Micro Locations by place</a>
+                    <a href="#get-beacons-by-place" class="toc-h2 toc-link" data-title="Beacons">Get beacons by place</a>
                   </li>
                   <li>
-                    <a href="#get-micro-locations-by-place-extended" class="toc-h2 toc-link" data-title="Micro Locations">Get Micro Locations by place (extended)</a>
+                    <a href="#get-beacons-by-place-extended" class="toc-h2 toc-link" data-title="Beacons">Get beacons by place (extended)</a>
                   </li>
                   <li>
-                    <a href="#get-micro-locations-by-id" class="toc-h2 toc-link" data-title="Micro Locations">Get Micro Locations by id</a>
+                    <a href="#get-beacons-by-id" class="toc-h2 toc-link" data-title="Beacons">Get beacons by id</a>
                   </li>
                   <li>
-                    <a href="#get-micro-locations-by-major-minor-uuid" class="toc-h2 toc-link" data-title="Micro Locations">Get Micro Locations by major,minor,uuid</a>
+                    <a href="#get-beacons-by-major-minor-uuid" class="toc-h2 toc-link" data-title="Beacons">Get beacons by major,minor,uuid</a>
                   </li>
                   <li>
-                    <a href="#get-all-micro-locations-by-domain-name" class="toc-h2 toc-link" data-title="Micro Locations">Get all Micro Locations by domain name</a>
+                    <a href="#get-all-beacons-by-domain-name" class="toc-h2 toc-link" data-title="Beacons">Get all beacons by domain name</a>
                   </li>
               </ul>
           </li>
@@ -276,7 +276,7 @@
 <p>Contextgrid expects for the Token key to be included in all API requests to the server in a header that looks like the following:</p>
 
 <p><code>X-AUTH-TOKEN: eyJhbGciOiJIUzUxMiJ9.eyJwZXJtaXNzaW9ucyI6IltdIiwic3ViamVjdCI6ImFua2l0QGdtYWlsLmNvbWNvbXBhbnlPd25lciIsInJvbGVzIjoiW2NvbXBhbnlPd25lcl0ifQ.qWorUEDE5_ZWdBuded-U_OOhNWeymspy6xJ2ogXfM3GW6d9rW2_8J992y5fN71Rj17JgkmFe-PbwdgDqOL95CA</code></p>
-<h1 id='micro-locations'>Micro Locations</h1><h2 id='get-all-places'>Get All Places</h2><pre class="highlight python tab-python"><code><span class="n">GET</span>  <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">place</span><span class="o">/</span><span class="n">beacons</span><span class="err">?</span><span class="n">longitude</span><span class="o">=-</span><span class="mf">74.0441844</span><span class="o">&amp;</span><span class="n">latitude</span><span class="o">=</span><span class="mf">40.7139937</span><span class="o">&amp;</span><span class="n">apiKey</span><span class="o">=</span><span class="n">yourAppApiKey</span>
+<h1 id='beacons'>Beacons</h1><h2 id='get-all-places'>Get All Places</h2><pre class="highlight python tab-python"><code><span class="n">GET</span>  <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">place</span><span class="o">/</span><span class="n">beacons</span><span class="err">?</span><span class="n">longitude</span><span class="o">=-</span><span class="mf">74.0441844</span><span class="o">&amp;</span><span class="n">latitude</span><span class="o">=</span><span class="mf">40.7139937</span><span class="o">&amp;</span><span class="n">apiKey</span><span class="o">=</span><span class="n">yourAppApiKey</span>
 
 <span class="n">Headers</span>
 <span class="n">X</span><span class="o">-</span><span class="n">AUTH</span><span class="o">-</span><span class="n">TOKEN</span><span class="p">:</span> <span class="n">xAuthToken</span>
@@ -342,7 +342,7 @@
 <aside class="success">
 Remember — your apiKey of your app should be valid
 </aside>
-<h2 id='get-micro-locations-by-place'>Get Micro Locations by place</h2><pre class="highlight python tab-python"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">beacons</span><span class="o">/</span><span class="n">byPlace</span><span class="o">/</span><span class="mi">6</span><span class="n">de3ef9f</span><span class="o">-</span><span class="mi">9</span><span class="n">baf</span><span class="o">-</span><span class="mi">490</span><span class="n">c</span><span class="o">-</span><span class="n">a7ce</span><span class="o">-</span><span class="mi">8360</span><span class="n">a1aee65d</span><span class="o">/</span><span class="n">yourAppApiKey</span>
+<h2 id='get-beacons-by-place'>Get beacons by place</h2><pre class="highlight python tab-python"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">beacons</span><span class="o">/</span><span class="n">byPlace</span><span class="o">/</span><span class="mi">6</span><span class="n">de3ef9f</span><span class="o">-</span><span class="mi">9</span><span class="n">baf</span><span class="o">-</span><span class="mi">490</span><span class="n">c</span><span class="o">-</span><span class="n">a7ce</span><span class="o">-</span><span class="mi">8360</span><span class="n">a1aee65d</span><span class="o">/</span><span class="n">yourAppApiKey</span>
 
 <span class="n">Headers</span>
 <span class="n">X</span><span class="o">-</span><span class="n">AUTH</span><span class="o">-</span><span class="n">TOKEN</span><span class="p">:</span> <span class="n">xAuthToken</span>
@@ -366,7 +366,7 @@ Remember — your apiKey of your app should be valid
     <span class="p">]</span>
 <span class="p">}</span>
 </code></pre>
-<p>This endpoint retrieves Micro Locations belonging to place.</p>
+<p>This endpoint retrieves beacons belonging to place.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
 <h3 id='http-request-2'>HTTP Request</h3>
@@ -387,7 +387,7 @@ Remember — your apiKey of your app should be valid
 <td>apiKey of your app.</td>
 </tr>
 </tbody></table>
-<h2 id='get-micro-locations-by-place-extended'>Get Micro Locations by place (extended)</h2><pre class="highlight python tab-python"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">allBeacons</span><span class="o">/</span><span class="n">byPlace</span><span class="o">/</span><span class="mi">6</span><span class="n">de3ef9f</span><span class="o">-</span><span class="mi">9</span><span class="n">baf</span><span class="o">-</span><span class="mi">490</span><span class="n">c</span><span class="o">-</span><span class="n">a7ce</span><span class="o">-</span><span class="mi">8360</span><span class="n">a1aee65d</span><span class="o">/</span><span class="n">yourAppApiKey</span>
+<h2 id='get-beacons-by-place-extended'>Get beacons by place (extended)</h2><pre class="highlight python tab-python"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">allBeacons</span><span class="o">/</span><span class="n">byPlace</span><span class="o">/</span><span class="mi">6</span><span class="n">de3ef9f</span><span class="o">-</span><span class="mi">9</span><span class="n">baf</span><span class="o">-</span><span class="mi">490</span><span class="n">c</span><span class="o">-</span><span class="n">a7ce</span><span class="o">-</span><span class="mi">8360</span><span class="n">a1aee65d</span><span class="o">/</span><span class="n">yourAppApiKey</span>
 
 <span class="n">Headers</span>
 <span class="n">X</span><span class="o">-</span><span class="n">AUTH</span><span class="o">-</span><span class="n">TOKEN</span><span class="p">:</span> <span class="n">xAuthToken</span>
@@ -422,7 +422,7 @@ Remember — your apiKey of your app should be valid
     <span class="p">]</span>
 <span class="p">}</span>
 </code></pre>
-<p>This endpoint retrieves Micro Locations with action list value (metadata) belonging to given place.</p>
+<p>This endpoint retrieves beacons with action list value (metadata) belonging to given place.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
 <h3 id='http-request-3'>HTTP Request</h3>
@@ -443,7 +443,7 @@ Remember — your apiKey of your app should be valid
 <td>apiKey of your app.</td>
 </tr>
 </tbody></table>
-<h2 id='get-micro-locations-by-id'>Get Micro Locations by id</h2><pre class="highlight python tab-python"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">beacon</span><span class="o">/</span><span class="n">byid</span><span class="o">/</span><span class="mi">128</span><span class="n">b7bdc</span><span class="o">-</span><span class="mf">03e6</span><span class="o">-</span><span class="mi">42</span><span class="n">de</span><span class="o">-</span><span class="n">bc24</span><span class="o">-</span><span class="n">da4222644610</span><span class="o">/</span><span class="n">yourAppApiKey</span>
+<h2 id='get-beacons-by-id'>Get beacons by id</h2><pre class="highlight python tab-python"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">beacon</span><span class="o">/</span><span class="n">byid</span><span class="o">/</span><span class="mi">128</span><span class="n">b7bdc</span><span class="o">-</span><span class="mf">03e6</span><span class="o">-</span><span class="mi">42</span><span class="n">de</span><span class="o">-</span><span class="n">bc24</span><span class="o">-</span><span class="n">da4222644610</span><span class="o">/</span><span class="n">yourAppApiKey</span>
 
 <span class="n">Headers</span>
 <span class="n">X</span><span class="o">-</span><span class="n">AUTH</span><span class="o">-</span><span class="n">TOKEN</span><span class="p">:</span> <span class="n">xAuthToken</span>
@@ -476,7 +476,7 @@ Remember — your apiKey of your app should be valid
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<p>This endpoint retrieves Micro Locations information of given id.</p>
+<p>This endpoint retrieves beacon information of given id.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
 <h3 id='http-request-4'>HTTP Request</h3>
@@ -490,14 +490,14 @@ Remember — your apiKey of your app should be valid
 </thead><tbody>
 <tr>
 <td>BeaconId</td>
-<td>id of Micro Location</td>
+<td>id of beacon</td>
 </tr>
 <tr>
 <td>AppApiKey</td>
 <td>apiKey of your app.</td>
 </tr>
 </tbody></table>
-<h2 id='get-micro-locations-by-major-minor-uuid'>Get Micro Locations by major,minor,uuid</h2><pre class="highlight python tab-python"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">beacon</span><span class="o">/</span><span class="n">getBy</span><span class="o">/</span><span class="n">B9407F30</span><span class="o">-</span><span class="n">F5F8</span><span class="o">-</span><span class="mi">466</span><span class="n">E</span><span class="o">-</span><span class="n">AFF9</span><span class="o">-</span><span class="mi">25556</span><span class="n">B57FE6D</span><span class="o">/</span><span class="mi">53001</span><span class="o">/</span><span class="mi">51064</span><span class="o">/</span><span class="n">gmail</span><span class="o">/</span><span class="n">yourAppApiKey</span>
+<h2 id='get-beacons-by-major-minor-uuid'>Get beacons by major,minor,uuid</h2><pre class="highlight python tab-python"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">beacon</span><span class="o">/</span><span class="n">getBy</span><span class="o">/</span><span class="n">B9407F30</span><span class="o">-</span><span class="n">F5F8</span><span class="o">-</span><span class="mi">466</span><span class="n">E</span><span class="o">-</span><span class="n">AFF9</span><span class="o">-</span><span class="mi">25556</span><span class="n">B57FE6D</span><span class="o">/</span><span class="mi">53001</span><span class="o">/</span><span class="mi">51064</span><span class="o">/</span><span class="n">gmail</span><span class="o">/</span><span class="n">yourAppApiKey</span>
 
 
 <span class="n">Headers</span>
@@ -531,7 +531,7 @@ Remember — your apiKey of your app should be valid
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<p>This endpoint retrieves Micro Locations information of given major,minor,uuid.</p>
+<p>This endpoint retrieves beacon information of given major,minor,uuid.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
 <h3 id='http-request-5'>HTTP Request</h3>
@@ -545,15 +545,15 @@ Remember — your apiKey of your app should be valid
 </thead><tbody>
 <tr>
 <td>UUID</td>
-<td>uuid (Proximity_UUID) of Micro Location</td>
+<td>uuid (Proximity_UUID) of beacon</td>
 </tr>
 <tr>
 <td>Major</td>
-<td>major of Micro Location</td>
+<td>major of beacon</td>
 </tr>
 <tr>
 <td>Minor</td>
-<td>minor of Micro Location</td>
+<td>minor of beacon</td>
 </tr>
 <tr>
 <td>DomainName</td>
@@ -564,7 +564,7 @@ Remember — your apiKey of your app should be valid
 <td>apiKey of your app.</td>
 </tr>
 </tbody></table>
-<h2 id='get-all-micro-locations-by-domain-name'>Get all Micro Locations by domain name</h2><pre class="highlight python tab-python"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">beacons</span><span class="o">/</span><span class="nb">all</span><span class="o">/</span><span class="n">gmail</span><span class="o">/</span><span class="n">yourCompanyApiKey</span>
+<h2 id='get-all-beacons-by-domain-name'>Get all beacons by domain name</h2><pre class="highlight python tab-python"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">contextgrid</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">beacons</span><span class="o">/</span><span class="nb">all</span><span class="o">/</span><span class="n">gmail</span><span class="o">/</span><span class="n">yourCompanyApiKey</span>
 
 
 
@@ -610,7 +610,7 @@ Remember — your apiKey of your app should be valid
     <span class="p">]</span>
 <span class="p">}</span>
 </code></pre>
-<p>This endpoint retrieves Micro Location information of given major,minor,uuid.</p>
+<p>This endpoint retrieves beacon information of given major,minor,uuid.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
 <h3 id='http-request-6'>HTTP Request</h3>
